@@ -1,14 +1,13 @@
 <div>
-  <mat-table>
-    <[datasource]="datasource">
+  <mat-table [dataSource]="dataSource">
       <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
-        <mat-cell *matCellDef="let todos">{{todos.id}}</mat-cell>
+        <mat-cell *matCellDef="let todo">{{todo.id}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="title">
         <mat-header-cell *matHeaderCellDef>Title</mat-header-cell>
-        <mat-cell *matCellDef="let todos">{{todos.title}}</mat-cell>
+        <mat-cell *matCellDef="let todo">{{todo.title}}</mat-cell>
       </ng-container>
 
       <mat-header-row *matHeaderRowDef="displayColumns"></mat-header-row>
