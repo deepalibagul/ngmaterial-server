@@ -27,7 +27,7 @@ jobs:
           - v1-dependencies-
 
       - run: yarn install
-        no_output_timeout: 30m
+          no_output_timeout: 30m
 
 
       - save_cache:
@@ -37,4 +37,4 @@ jobs:
         
       # run tests!
       - run: yarn test
-        no_output_timeout: 30m
+          no_output_timeout: 30m
