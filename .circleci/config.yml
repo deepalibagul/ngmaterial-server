@@ -15,8 +15,8 @@ jobs:
       # Restore local dependencies from cache
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
       # Install project dependencies
       - run:
           name: Install local dependencies
@@ -41,6 +41,7 @@ jobs:
       # the current branch
       - run:
           name: Building
+          no_output_timeout: 30m
           command: |
             if [ "${CIRCLE_BRANCH}" == "staging" ]; then
               npm run build-qa
@@ -49,7 +50,6 @@ jobs:
             else
               npm run build-dev
             fi
-          no_output_timeout: 30m
       # Cache the dist folder for the deploy job
       - save_cache:
         key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
