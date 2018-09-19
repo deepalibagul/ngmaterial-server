@@ -15,7 +15,7 @@ import { Observable } from 'rxjs';
 })
 export class UsetableComponent implements OnInit {
   dataSource = new TodoDataSource(this.todoService);
-  displayColumns = ['id', 'title'];
+  displayColumns = ['id', 'title', 'userId', 'completed'];
 
   constructor(private todoService: TodoService) { }
 
