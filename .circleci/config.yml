@@ -15,6 +15,7 @@ jobs:
       # - image: circleci/mongo:3.4.4
 
     working_directory: ~/repo
+    no_output_timeout: 30m
 
     steps:
       - checkout
@@ -27,8 +28,6 @@ jobs:
           - v1-dependencies-
 
       - run: yarn install
-          no_output_timeout: 30m
-
 
       - save_cache:
           paths:
@@ -37,4 +36,3 @@ jobs:
         
       # run tests!
       - run: yarn test
-          no_output_timeout: 30m
